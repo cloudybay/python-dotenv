@@ -1,5 +1,10 @@
 # python-dotenv
 
+This fork is written by Cloudybay Info Co.
+Implement method `set_as_environment_variables` of `DotEnv()` to add django's BASE_DIR to sys.path for more convenience.
+
+---
+
 [![Build Status][build_status_badge]][build_status_link]
 [![PyPI version][pypi_badge]][pypi_link]
 
