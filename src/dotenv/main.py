@@ -93,13 +93,13 @@ class DotEnv():
         Load the current dotenv as system environment variable.
         """
         for k, v in self.dict().items():
+            if to_env(k) == 'BASE_DIR' and to_env(v) not in sys.path:
+                logger.info('Append BASE_DIR to path.')
+                sys.path.append(to_env(v))
             if k in os.environ and not self.override:
                 continue
             if v is not None:
                 os.environ[to_env(k)] = to_env(v)
-                if to_env(k) == 'BASE_DIR' and to_env(v) not in sys.path:
-                    logger.info('Append BASE_DIR to path.')
-                    sys.path.append(to_env(v))
 
         return True
 
